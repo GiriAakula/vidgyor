@@ -1,23 +1,24 @@
-import overlay from "./overlay-plugin";
-import VideoPlayer from "./VideoPlayer"
+import Videojs from "./video.js";
+
 function App() {
   const videoJsOptions = {
     autoplay: false,
-    controls: false,
-    sources: [{
-      src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-      type: 'video/mp4'
-    }],
-    plugins: {
-      overlay:{}
+    autoplay: false,
+    controls: true,
+    sources: [
+      {
+        src: "http://media.w3.org/2010/05/bunny/movie.mp4",
+        type: 'video/mp4',
+      },
+    ],
+    plugins:{
+      "videojsOverlay":{ }
     }
-  }
+  };
   return (
     <div>
-      <VideoPlayer
-
-      />
-    </div>
+    <Videojs {...videoJsOptions} className="video-js" />
+  </div>
   );
 }
 
